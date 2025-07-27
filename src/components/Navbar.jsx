@@ -50,7 +50,7 @@ const Navbar = () => {
           <SigninButton />
         </nav>
         {/* Mobile Menu Button */}
-        <div className='flex sm:hidden items-center '>
+        <div className='flex sm:hidden items-center ml-4'>
              <a href="/booking" className="mr-2 ">
               <button className="bg-yellow-400 text-blue-900 w-full py-2 rounded-xl font-semibold shadow hover:bg-yellow-300 px-4 text-xs whitespace-nowrap">
                 Book{" "}Now
@@ -63,7 +63,6 @@ const Navbar = () => {
           </div>
         </div>
         </div>
-
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="sm:hidden px-4 pb-4">

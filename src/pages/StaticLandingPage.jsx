@@ -192,7 +192,7 @@ const StaticLandingPage = () => {
         <section className="w-full text-white py-6 lg:py-16 lg:px-6">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 items-center justify-between">
             <div className="max-w-2xl">
-              <div className="inline-flex items-center bg-yellow-500/10 text-yellow-300 text-sm px-3 py-1 rounded-full mb-4 font-medium">
+              <div className="inline-flex items-center bg-yellow-500/10 text-yellow-300 text-sm px-3 py-1 rounded-full mb-4 font-medium mt-4 sm:mt-0">
                 ⭐ 30+ Years of Experience
               </div>
               <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-yellow-300 mb-4">
@@ -225,7 +225,7 @@ const StaticLandingPage = () => {
                   <div className="text-sm text-blue-100 mt-1">8AM – 8PM</div>
                 </div>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 ">
                 <button className="flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-xl font-semibold shadow hover:from-blue-600 hover:to-purple-600" onClick={()=> navigateTo()}>
                  <CalendarDays className="text-blue-200 mb-1 mr-4" /> Book your Appointment now
                 </button>
