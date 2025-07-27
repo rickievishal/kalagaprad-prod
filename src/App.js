@@ -27,6 +27,7 @@ import Terms from './pages/Terms';
 function App() {
 
   const [userData, setUserData] = useState(null) 
+  
   return (
     <div className="App">
       <header className="App-header">
