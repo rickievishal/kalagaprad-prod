@@ -1,6 +1,6 @@
 import hero from "../assets/imgs/hero.png"
 import React from "react";
-import { MapPin, Phone, Mail, Clock, Star, Users, Calendar,CalendarDays, BadgeCheck, TrendingUp, } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Star, Users, Calendar,CalendarDays, BadgeCheck, TrendingUp,UserCircle } from "lucide-react";
 import { useNavigate } from "react-router";
 
 // UI COMPONENTS
@@ -171,20 +171,15 @@ const StaticLandingPage = () => {
       rating: 5,
       text: "Kalaga Prasad Garu's predictions have been incredibly accurate. His Vastu guidance transformed my business completely."
     },
-    {
-      name: "Priya Sharma",
-      location: "Bangalore",
-      rating: 5,
-      text: "The muhurat selection was perfect and accurate."
-    },
+  
       {
       name: "Priya Sharma",
       location: "Bangalore",
       rating: 5,
       text: "The marriage muhurat selection was perfect. Very satisfied with the detailed consultation and follow-up guidance."
     },   {
-      name: "Priya Sharma",
-      location: "Bangalore",
+      name: "Venkat Reddy",
+      location: "Vijayawada, Andhra Pradesh",
       rating: 5,
       text: "30+ years of experience clearly shows in his analysis. Highly recommend for anyone seeking astrological guidance."
     }
@@ -275,19 +270,30 @@ const StaticLandingPage = () => {
         </section>
 
         <section id="services">
-          <h3 className="text-3xl font-semibold mb-6 text-yellow-300">Our Services</h3>
+          <h3 className="text-3xl text-center font-semibold mb-6 text-yellow-300">🪔 Our Services</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 gap-x-2">
             {services.map((service, i) => <ServiceCard key={i} {...service} />)}
           </div>
         </section>
 
         <section id="testimonials">
-          <h3 className="text-3xl font-semibold mb-6 text-yellow-300">Testimonials</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4  gap-6">
+          <h3 className="text-3xl text-center font-semibold mb-6 text-yellow-300">What Our Clients Say</h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3  gap-6">
             {testimonials.map((testimonial, i) => <TestimonialCard key={i} {...testimonial} />)}
           </div>
         </section>
-
+        <section id="testimonials">
+          <h3 className="text-3xl text-center font-semibold mb-4 text-yellow-300">Ready for Your Personalized Guidance?</h3>
+          <div className="max-w-3xl flex flex-col justify-center items-center mx-auto  backdrop-blur rounded-xl pt-4 p-6 text-center ">
+            <p className="text-center text-lg text-purple-100 mb-4">
+              Sign in to book your consultation and receive expert astrological guidance from Kalaga Prasad Garu with over 30 years of experience serving 2+ lakh satisfied clients.
+            </p>
+           <button className="flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-xl font-semibold shadow hover:from-blue-600 hover:to-purple-600" onClick={()=> navigateTo()}>
+                 <UserCircle className="text-blue-200 mb-1 mr-4" /> Sign In
+            </button>
+          </div>
+          
+        </section>
       </main>
       {/* <Footer /> */}
     </div>

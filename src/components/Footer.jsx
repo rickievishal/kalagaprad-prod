@@ -14,7 +14,7 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold text-yellow-300 mb-4">Contact Information</h3>
             <div className="space-y-3">
-              <div className="flex items-center gap-3"><Phone className="w-5 h-5 text-green-400" /><span>+91 (Appointment Only)</span></div>
+              <div className="flex items-center gap-3"><Phone className="w-5 h-5 text-green-400" /><span>+91 9553554048</span></div>
               <div className="flex items-center gap-3"><Mail className="w-5 h-5 text-blue-400" /><span>kalagaprasadastrology@gmail.com</span></div>
 
               <div className="flex items-center gap-3"><AiFillFacebook className="w-5 h-5 text-blue-400" /><a href='https://www.facebook.com/prasad.kalaga1'><span>Facebook</span></a></div>
@@ -47,8 +47,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="max-w-6xl mx-auto mt-8 pt-8 border-t border-yellow-400/20 text-center text-blue-200">
-          <p>&copy; 2024 Kalaga Prasad Astrology. All rights reserved.</p>
+        <div className="max-w-6xl mx-auto mt-8 pt-8 border-t border-yellow-400/20 text-center text-sm text-blue-200">
+          <a href='/terms' className='hover:underline '>Terms and Conditions</a>
+          <p className='mt-2'>&copy; 2024 Kalaga Prasad Astrology. All rights reserved.</p>
           <p className="mt-2 text-sm">Serving with 30+ years of experience in Scientific Astrology</p>
         </div>
       </footer>

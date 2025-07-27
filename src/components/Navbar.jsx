@@ -19,12 +19,12 @@ const Navbar = () => {
     <header className="w-full bg-black/30 backdrop-blur border-b border-yellow-400/20 sticky top-0 z-40">
       <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo */}
-        <div className="flex items-center gap-3 cursor-pointer">
-          <div className="text-3xl">🌟</div>
+        <div className="flex items-center gap-2 sm:gap-3 cursor-pointer">
+          <div className="text-2xl sm:text-3xl">🌟</div>
           <a href='/'>
             <div>
-              <h1 className="text-xl font-bold text-yellow-300">Kalaga Prasad Astrology</h1>
-              <p className="text-sm text-blue-200">Scientific Astrology Expert</p>
+              <h1 className="text-lg lg:text-xl font-bold text-yellow-300 leading-tight">Kalaga Prasad Astrology</h1>
+              <p className="text-xs lg:text-sm text-blue-200 mt-1 lg:mt-0">Scientific Astrology Expert</p>
             </div>
           </a>
         </div>
@@ -49,13 +49,13 @@ const Navbar = () => {
           </a>
           <SigninButton />
         </nav>
-        <div className='flex sm:hidden items-center gap-1'>
-             <a href="/booking">
+        {/* Mobile Menu Button */}
+        <div className='flex sm:hidden items-center '>
+             <a href="/booking" className="mr-2 ">
               <button className="bg-yellow-400 text-blue-900 w-full py-2 rounded-xl font-semibold shadow hover:bg-yellow-300 px-4 text-xs whitespace-nowrap">
                 Book{" "}Now
               </button>
             </a>
-        {/* Mobile Menu Button */}
         <div className="sm:hidden">
             <button onClick={toggleMenu} className="text-yellow-300 text-2xl focus:outline-none ">
               ☰
