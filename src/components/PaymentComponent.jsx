@@ -13,6 +13,7 @@ const PaymentComponent = ({ paymentAmount, formData, userInfo }) => {
   const navigate = useNavigate();
   const [token, setToken] = useState(null);
 
+  
   useEffect(() => {
     const savedToken = Cookies.get("token");
     if (savedToken) {
