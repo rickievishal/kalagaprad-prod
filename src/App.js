@@ -41,7 +41,6 @@ function App() {
           <Route path="/your-orders" element={<UserOrders />} />
           <Route path="/terms" element={<Terms />} />
 
-          {/* Route for unauthorized access */}
           {/* Protected Admin Route */}
           <Route
             path="/admin"
@@ -51,20 +50,23 @@ function App() {
               </AuthenticateAdmin>
             }
             />
-             <Route path='admin/appointment-viewer' element={<AuthenticateAdmin>
-               <AppointmentViewer/>
-              </AuthenticateAdmin>
+             <Route path='admin/appointment-viewer' element={
+                <AuthenticateAdmin>
+                 <AppointmentViewer/>
+                </AuthenticateAdmin>
               }/>
-               <Route path='/admin/slot-management' element={<AuthenticateAdmin>
-               <SlotManager/>
-              </AuthenticateAdmin>
+               <Route path='/admin/slot-management' element={
+                  <AuthenticateAdmin>
+                   <SlotManager/>
+                  </AuthenticateAdmin>
               }/>
-               <Route path='/admin/user-management' element={<AuthenticateAdmin>
-               <UserManager/>
-              </AuthenticateAdmin>
+               <Route path='/admin/user-management' element={
+                  <AuthenticateAdmin>
+                    <UserManager/>
+                  </AuthenticateAdmin>
               }/>
               
-          {/* Add other routes here as your application grows */}
+         
         </Routes>
         <Footer/>
       </header>
