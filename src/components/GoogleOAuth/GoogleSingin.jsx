@@ -18,7 +18,7 @@ const GoogleSignin = () => {
   const from = location.state?.from || "/";
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
-
+  
   // Check login status on component mount
   useEffect(() => {
     const token = Cookies.get("token");
@@ -69,6 +69,7 @@ const GoogleSignin = () => {
           secure: process.env.NODE_ENV === "production",
           sameSite: "Lax",
         });
+      
         // console.log(name)
         setUserName(name); // Set user name for display
         setIsLoggedIn(true); // Update login state
@@ -82,7 +83,13 @@ const GoogleSignin = () => {
           draggable: true,
           progress: undefined,
         });
-        navigate(from); // go to where user intended
+          if(res.data.role === "admin") {
+          navigate("/admin"); 
+          return;
+        }else {
+          navigate("/booking"); 
+        } 
+
 
       } else {
         toast.error("Sign-in failed. Please try again.", {
@@ -132,6 +139,7 @@ const GoogleSignin = () => {
         progress: undefined,
       });
       navigate("/login"); // Redirect to the sign-in page
+      window.location.reload(); // Refresh the page
     } catch (error) {
       console.error("Logout failed:", error.response?.data || error.message);
       toast.error("Logout failed. Please try again.", {

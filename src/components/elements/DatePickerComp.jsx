@@ -30,40 +30,65 @@ const DatePickerComp = ({ onDateChange }) => {
     const isCustomDisabled = disabledDates.includes(date.format('YYYY-MM-DD'));
     return isSunday || isCustomDisabled;
   };
-
-  // 🔸 Create a light custom theme just for the DatePicker
-  const lightTheme = createTheme({
-    palette: {
-      mode: 'light',
+const lightTheme = createTheme({
+  palette: {
+    mode: 'light',
+  },
+  components: {
+    MuiSvgIcon: {
+      styleOverrides: {
+        root: {
+          color: 'black', // calendar icon
+        },
+      },
     },
-  });
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          '& fieldset': {
+            borderColor: 'white',
+          },
+          '&:hover fieldset': {
+            borderColor: 'white',
+          },
+          '&.Mui-focused fieldset': {
+            borderColor: 'white',
+          },
+          '& input': {
+            color: 'white', // <-- white date text
+          },
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          color: 'white', // label
+        },
+      },
+    },
+  },
+});
 
   return (
     <ThemeProvider theme={lightTheme}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DatePicker
-          label="Select a date"
+
           value={selectedDate}
           onChange={handleDateChange}
           minDate={defaultDate}
           shouldDisableDate={shouldDisableDate}
+          className='bg-white rounded-lg'
           slotProps={{
             textField: {
               fullWidth: true,
               sx: {
-                input: { color: 'white' }, // Input text
-                label: { color: 'white' }, // Label text
-                '& .MuiOutlinedInput-root': {
-                  '& fieldset': {
-                    borderColor: 'white',
-                  },
-                  '&:hover fieldset': {
-                    borderColor: 'white',
-                  },
-                  '&.Mui-focused fieldset': {
-                    borderColor: 'white',
-                  },
-                },
+                input: { color: 'white' }, 
+                label: { color: 'white' }, 
+                '& .MuiOutlinedInput-notchedOutline': {
+                  borderColor: 'white', // border color
+                },  
               },
             },
           }}

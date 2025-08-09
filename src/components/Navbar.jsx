@@ -1,13 +1,57 @@
 import React, { useEffect, useState } from 'react';
 import Cookies from "js-cookie";
 import SigninButton from './elements/SigninButton';
-
+import { jwtDecode } from "jwt-decode";
+import { toast } from "react-toastify";
+import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const [userRole, setUserRole] = useState(null);
+  const [isLoading, setLoading] = useState(true);
+  const navigate = useNavigate();
   useEffect(() => {
     const token = Cookies.get("token");
+    const checkAdminStatus = async () => {
+
+      if (!token) {
+
+        toast.error("Please sign in to access this page.", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+        navigate("/");
+        return;
+      }
+
+      try {
+
+        const decodedToken = jwtDecode(token);
+        const role = decodedToken.role;
+
+
+        if (role === "admin") {
+
+          setUserRole("admin");
+          
+        } 
+      } catch (error) {
+        console.error("Authentication failed:", error);
+        toast.error("Authentication failed. Please log in again.", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+        Cookies.remove("token"); // Clear invalid token
+        Cookies.remove("role");
+        Cookies.remove("id");
+        navigate("/"); // Redirect to sign-in on token error
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    checkAdminStatus();
     setLoggedIn(!!token);
   }, []);
 
@@ -42,6 +86,11 @@ const Navbar = () => {
               <button className="text-white hover:text-yellow-300">Your Orders</button>
             </a>
           )}
+          {userRole === "admin" && (
+            <a href="/admin">
+              <button className="text-white hover:text-yellow-300">Admin Panel</button>
+            </a>
+          )}
           <a href="/booking">
             <button className="bg-yellow-400 text-blue-900 px-6 py-2 rounded-xl font-semibold shadow hover:bg-yellow-300">
               Book Now
@@ -72,7 +121,11 @@ const Navbar = () => {
             {loggedIn && (
               <a href="/your-orders" className="text-white hover:text-yellow-300 text-center">Your Orders</a>
             )}
-           
+            {userRole === "admin" && (
+            <a href="/admin">
+              <button className="w-full text-white hover:text-yellow-300 text-center">Admin Panel</button>
+            </a>
+          )}
             <a href='/' className="text-white hover:text-yellow-300 text-center">
               User Profile
             </a>
