@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
-import { RxCross2 } from "react-icons/rx";
+import { RxCheck, RxCross2 } from "react-icons/rx";
 import { toast } from "react-toastify";
 import { GoArrowRight } from "react-icons/go";
 const API_BASE_URL = (
@@ -89,9 +89,9 @@ const PaymentSuccess = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[70vh] p-4  bg-purple-800">
-      <div className="w-full max-w-md p-8 text-center bg-white rounded-lg shadow-lg">
+      <div className="w-full flex flex-col justify-center items-center max-w-md p-8 text-center bg-white rounded-lg shadow-lg">
         <div className="mb-4 text-green-500">
-         
+          <RxCheck className="w-12 h-12 mx-auto" />
         </div>
         <h1 className="text-3xl font-bold text-gray-800">
           Payment Successful!
@@ -115,7 +115,7 @@ const PaymentSuccess = () => {
           <p className="mt-1 text-gray-700">
             <strong>Time Slot:</strong> {bookingDetails?.time_slot}
           </p>
-          <button className="bg-yellow-400 text-blue-900 px-6 py-2 rounded-xl font-semibold shadow hover:bg-yellow-300 flex gap-2 items-center justify-center" onClick={()=> navigate("/your-orders")}>
+          <button className="bg-yellow-400 text-blue-900 px-6 py-2 rounded-xl font-semibold shadow hover:bg-yellow-300 flex gap-2 items-center justify-center mx-auto mt-4" onClick={()=> navigate("/your-orders")}>
             Go to your Orders <GoArrowRight className="text-xl"/>
           </button>
         </div>

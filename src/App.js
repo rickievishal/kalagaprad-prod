@@ -23,6 +23,9 @@ import AppointmentForm from './components/AppointmentForm';
 import AppointmentViewer from './pages/AppointmentsViewer';
 import UserManager from './pages/UserManager';
 import Terms from './pages/Terms';
+import BusinessPolicy from './pages/BusinessPolicy';
+import RefundPolicy from './pages/RefundPolicy';
+import PaymentSuccess from './components/PaymentSuccess';
 
 function App() {
 
@@ -40,7 +43,11 @@ function App() {
           <Route path="/booking" element={<Booking />} />
           <Route path="/your-orders" element={<UserOrders />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
+          <Route path="/business-policy" element={<BusinessPolicy />} />
+          <Route path="/payment-status" element={<PaymentSuccess />} />
 
+          {/* Route for unauthorized access */}
           {/* Protected Admin Route */}
           <Route
             path="/admin"
@@ -50,23 +57,20 @@ function App() {
               </AuthenticateAdmin>
             }
             />
-             <Route path='admin/appointment-viewer' element={
-                <AuthenticateAdmin>
-                 <AppointmentViewer/>
-                </AuthenticateAdmin>
+             <Route path='admin/appointment-viewer' element={<AuthenticateAdmin>
+               <AppointmentViewer/>
+              </AuthenticateAdmin>
               }/>
-               <Route path='/admin/slot-management' element={
-                  <AuthenticateAdmin>
-                   <SlotManager/>
-                  </AuthenticateAdmin>
+               <Route path='/admin/slot-management' element={<AuthenticateAdmin>
+               <SlotManager/>
+              </AuthenticateAdmin>
               }/>
-               <Route path='/admin/user-management' element={
-                  <AuthenticateAdmin>
-                    <UserManager/>
-                  </AuthenticateAdmin>
+               <Route path='/admin/user-management' element={<AuthenticateAdmin>
+               <UserManager/>
+              </AuthenticateAdmin>
               }/>
               
-         
+          {/* Add other routes here as your application grows */}
         </Routes>
         <Footer/>
       </header>
