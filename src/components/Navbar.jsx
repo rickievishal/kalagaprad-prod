@@ -17,10 +17,10 @@ const Navbar = () => {
 
       if (!token) {
 
-        toast.error("Please sign in to access this page.", {
-          position: "top-right",
-          autoClose: 3000,
-        });
+        // toast.error("Please sign in to access this page.", {
+        //   position: "top-right",
+        //   autoClose: 3000,
+        // });
         navigate("/");
         return;
       }
@@ -38,10 +38,10 @@ const Navbar = () => {
         } 
       } catch (error) {
         console.error("Authentication failed:", error);
-        toast.error("Authentication failed. Please log in again.", {
-          position: "top-right",
-          autoClose: 3000,
-        });
+        // toast.error("Authentication failed. Please log in again.", {
+        //   position: "top-right",
+        //   autoClose: 3000,
+        // });
         Cookies.remove("token"); // Clear invalid token
         Cookies.remove("role");
         Cookies.remove("id");
