@@ -21,7 +21,7 @@ const Navbar = () => {
         //   position: "top-right",
         //   autoClose: 3000,
         // });
-        navigate("/");
+        // navigate("/");
         return;
       }
 
@@ -45,7 +45,7 @@ const Navbar = () => {
         Cookies.remove("token"); // Clear invalid token
         Cookies.remove("role");
         Cookies.remove("id");
-        navigate("/"); // Redirect to sign-in on token error
+        // navigate("/"); // Redirect to sign-in on token error
       } finally {
         setLoading(false);
       }
