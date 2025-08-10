@@ -12,6 +12,7 @@ const PhoneComp = ({value,setValue,className}) => {
       international={false}
       defaultCountry='IN'
       value={value}
+      placeholder="Enter phone number"
       onChange={setValue}  className={`phone-input ${className}`} />
    </div>
   )
