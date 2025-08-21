@@ -300,7 +300,7 @@ const timeSlots = allSlotRanges.map((time) => {
                                     }
                                     className="mt-1 mb-4 text-black"
                                 />
-                                <label htmlFor='city' className=''>
+                                {/* <label htmlFor='city' className=''>
                                     Select a city
                                 </label>
                                 <select className='w-full py-2 px-4 mt-2 border border-black/20 rounded-lg text-black' onChange={(e) => setFormData({...formData , city : e.target.value})} id="city">
@@ -310,7 +310,7 @@ const timeSlots = allSlotRanges.map((time) => {
                                             {city.name}
                                         </option>))
                                     }
-                                </select>
+                                </select> */}
                             </div>
                     </>)
                 }
