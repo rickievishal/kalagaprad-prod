@@ -25,7 +25,7 @@ const PaymentComponent = ({ paymentAmount, formData, userInfo }) => {
     const initializeCashfree = async () => {
       try {
         const cashfreeJs = await load({
-          mode: "production", 
+          mode: "sandbox", // Change to "production" for live environment
         });
         setCashfree(cashfreeJs);
       } catch (error) {
@@ -84,7 +84,7 @@ const PaymentComponent = ({ paymentAmount, formData, userInfo }) => {
         }
       );
       book = booking.data;
-      await blockSlot();
+      // await blockSlot();
     } catch (err) {
       console.error(err);
       toast.error("Booking creation failed.");

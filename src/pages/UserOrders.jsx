@@ -3,6 +3,9 @@ import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import PaymentComponent from '../components/PaymentComponent';
+import { FaRightLong } from 'react-icons/fa6';
+import { ArrowRight, ArrowRightLeft } from 'lucide-react';
 
 const API_BASE_URL = (
   process.env.REACT_APP_API_BASE_URL || "http://localhost:8080"
@@ -94,6 +97,13 @@ const UserOrders = () => {
               <p className="text-white text-sm">
                 <span className="font-medium text-yellow-300">Status:</span> {order.payment_status ? "Paid" : "Pending"}
               </p>
+              {
+                !order.payment_status && (
+                  <div className='flex items-end justify-end mt-4'>
+                    <button className =" px-4 py-1 rounded-lg bg-yellow-500 flex">Complete payment <ArrowRight className='pl-2'/></button>
+                    </div>
+                )
+              }
             </div>
           ))}
         </div>

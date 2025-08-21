@@ -4,6 +4,8 @@ import axios from "axios";
 import { RxCheck, RxCross2 } from "react-icons/rx";
 import { toast } from "react-toastify";
 import { GoArrowRight } from "react-icons/go";
+import Cookies from "js-cookie";
+
 const API_BASE_URL = (
   process.env.REACT_APP_API_BASE_URL || "http://localhost:8080"
 ).replace(/\/+$/, "");
@@ -15,7 +17,35 @@ const PaymentSuccess = () => {
   const [bookingDetails, setBookingDetails] = useState(null);
   const [paymentFound, setPaymentFound] = useState(false); // New state to track if payment was found
   const navigate = useNavigate();
+  const [token, setToken] = useState(null);
   useEffect(() => {
+     const savedToken = Cookies.get("token");
+        if (savedToken) {
+          setToken(savedToken);
+          console.log("Token found:", savedToken);
+        }
+    const blockSlot = async (formData) => {
+      try {
+        console.log("Blocking slot with data:", formData);
+        await axios.post(
+          `${API_BASE_URL}/api/unavailable-slots`,
+          {
+            date: formData.date,
+            timeSlot: formData.time_slot,
+            isAvailable: false,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${savedToken}`,
+            },
+          }
+        );
+        console.log("Slot blocked successfully.");
+      } catch (error) {
+        console.error("Failed to block slot:", error);
+      }
+    };
+
     const verifyPayment = async () => {
       if (!orderId) {
         toast.error("Invalid payment link. No Order ID found.");
@@ -29,7 +59,9 @@ const PaymentSuccess = () => {
         );
         // If the request is successful and data is returned
         setBookingDetails(response.data);
+        console.log("Booking details:", response.data);
         setPaymentFound(true); // Payment was found and is successful
+        await blockSlot(response.data);
         toast.success("Payment successful! Your booking is confirmed.");
       } catch (error) {
         console.error("Payment verification failed:", error);
@@ -94,10 +126,10 @@ const PaymentSuccess = () => {
           <RxCheck className="w-12 h-12 mx-auto" />
         </div>
         <h1 className="text-3xl font-bold text-gray-800">
-          Payment Successful!
+          We have received your appointment
         </h1>
         <p className="mt-4 text-gray-600">
-          Thank you for your payment. Your booking has been confirmed.
+          We will reach out to you soon...
         </p>
         <div className="pt-4 mt-6 text-left border-t">
           <h3 className="text-lg font-semibold text-gray-800">

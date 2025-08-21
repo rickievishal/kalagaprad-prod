@@ -139,7 +139,7 @@ const GoogleSignin = () => {
         progress: undefined,
       });
       navigate("/login"); // Redirect to the sign-in page
-      window.location.reload(); // Refresh the page
+      window.location.reload(true); // Refresh the page
     } catch (error) {
       console.error("Logout failed:", error.response?.data || error.message);
       toast.error("Logout failed. Please try again.", {

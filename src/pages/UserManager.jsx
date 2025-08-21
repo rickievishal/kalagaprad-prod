@@ -60,7 +60,7 @@ const UserManager = () => {
             </h1>
             <div className='w-full border rounded-lg mt-8'>
                 <table className='w-full rounded-lg overflow-hidden border-1 border-black'>
-                        <tr className=' bg-black text-white'>
+                        <tr className=' bg-white text-black shadow-lg'>
                             <th className='px-4 py-2 border-r'>userId</th>
                             <th className='px-4 py-2 border-r'>Name</th>
                             <th className='px-4 py-2 border-r'>Email</th>
@@ -69,7 +69,7 @@ const UserManager = () => {
                         </tr>
                         {
                             users.map((user) => (
-                                <tr id={user._id}>
+                                <tr id={user._id} className='bg-purple-50 text-black hover:bg-purple-100 '>
                                     <td className='border-r px-2 py-2'>
                                         {user._id.slice(0,10)+"..."}
                                     </td>
@@ -82,7 +82,7 @@ const UserManager = () => {
                                     <td className='border-r px-2 py-2'>
                                         {user.role}
                                     </td>
-                                    <td className='border-r px-2 hover:underline hover:cursor-pointer hover:text-blue-600 py-2' onClick={()=>handleRoleChange(user)}>
+                                    <td className='border-r px-2 hover:underline hover:cursor-pointer text-blue-500 hover:text-blue-600 py-2' onClick={()=>handleRoleChange(user)}>
                                     change
                                     </td>
                                 </tr>

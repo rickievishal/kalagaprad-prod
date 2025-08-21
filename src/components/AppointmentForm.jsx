@@ -29,11 +29,9 @@ const AppointmentForm = ({userInfo}) => {
     function getDateThreeDaysFromToday() {
         const today = new Date();
         today.setDate(today.getDate() + 3);
-        
         const year = today.getFullYear();
         const month = String(today.getMonth() + 1).padStart(2, '0');
         const day = String(today.getDate()).padStart(2, '0');
-
         return `${year}-${month}-${day}`;
         }
     const [formData,setFormData] = useState({
@@ -413,7 +411,7 @@ const timeSlots = allSlotRanges.map((time) => {
                             </div>
                             <div className="flex justify-between items-center text-gray-500">
                             <span className="text-gray-500">Payable Amount</span>
-                            <span className="font-semibold">{formData.price} ₹</span>
+                            <span className="font-semibold">₹ {formData.price} </span>
                             </div>
                         </div>
                         </div>  
