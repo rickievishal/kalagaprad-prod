@@ -86,7 +86,7 @@ const timeSlots = allSlotRanges.map((time) => {
 });
 // console.log(timeSlots)
     const handleNext = () => {
-        if(step === 1 && !appointmentType && (formData.phone === "" || formData.name === "") ){
+        if(step === 1 && (!appointmentType || !formData.phone || !formData.name)){
             return
         }
         if(step === 2  && !formData.pickedDate ){
