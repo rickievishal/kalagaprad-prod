@@ -401,10 +401,10 @@ const timeSlots = allSlotRanges.map((time) => {
                             <span className="text-gray-500">Date</span>
                             <span className="font-semibold">{formData.pickedDate}</span>
                             </div>
-                            <div className="flex justify-between items-center text-gray-500">
+                            {/* <div className="flex justify-between items-center text-gray-500">
                             <span className="text-gray-500">City</span>
                             <span className="font-semibold capitalize">{formData.city}</span>
-                            </div>
+                            </div> */}
                             <div className="flex justify-between items-center text-gray-500">
                             <span className="">Time Slot</span>
                             <span className="font-semibold">{formData.timeSlot}</span>
